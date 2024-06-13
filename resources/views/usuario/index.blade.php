@@ -16,6 +16,7 @@
 <body>
     <header>
         <a href="">Pagina Privada @auth de {{Auth::user()->name}} @endauth</a>
+        <a href="{{route('administrador.index')}}">Añadir/Modificar/Eliminar/Libros</a>
         <a href="{{route('logout')}}"><button type="button">Salir</button></a>
     </header>
     <h2>LIBROS</h2>

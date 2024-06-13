@@ -14,7 +14,7 @@
         <input type="email" id="emailInput" name="email" required autocomplete="disable">
         <label for="passwordInput">Contraseña: </label>
         <input type="password" id="passwordInput" name="password" required>
-        <p>¿No tienes cuenta? <a href="{{route('usuario.registro')}}">Registrate...</a></p>
+        <p>¿No tienes cuenta? <a href="{{route('registro')}}">Registrate...</a></p>
         <button type="submit"><b>Acceder</b></button>
     </form>
 </body>
