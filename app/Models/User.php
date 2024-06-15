@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relación de uno a muchos con Loan
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'id_usuario');
+    }
 }

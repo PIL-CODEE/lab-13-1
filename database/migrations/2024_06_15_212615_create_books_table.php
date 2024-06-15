@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('tipo_usuario')->after('name');
+        Schema::create('books', function (Blueprint $table) {
+            $table->id();
+            $table->string('titulo', 100)->unique();
+            $table->integer('año_edicion');
+            $table->string('autor', 50);
+            $table->string('editorial', 50);
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('tipo_usuario');
-        });
+        Schema::dropIfExists('books');
     }
 };
