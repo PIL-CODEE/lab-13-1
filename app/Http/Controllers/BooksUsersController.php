@@ -7,10 +7,25 @@ use App\Models\Book;
 
 class BooksUsersController extends Controller
 {
-    // Listar libros
-    public function index()
+    // Listar y Buscar libro
+    public function index(Request $request)
     {
+        $busqueda =  $request->busqueda;
+
+        if ($busqueda) {
+            $search_book = Book::where('titulo', 'like', '%' . $busqueda . '%')->get();
+        } else {
+            $search_book = collect();
+        }
+
         $libros = Book::all();
-        return view('usuario.index', ['libros' => $libros]);
+
+        $data = [
+            'libros' => $libros,
+            'search_book' => $search_book,
+        ];
+
+        return view('usuario.index', $data);
     }
+
 }

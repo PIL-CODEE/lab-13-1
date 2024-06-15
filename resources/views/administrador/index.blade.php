@@ -7,6 +7,9 @@
 </head>
 <body>
     <h2>LIBROS</h2>
+    <header>
+        <a href="{{route('usuario.index')}}">Inicio</a>
+    </header>
     <a href="{{route('administrador.register-books')}}"><button type="button">Registrar nuevo libro</button></a>
     <table>
         <thead>
