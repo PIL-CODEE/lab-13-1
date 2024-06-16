@@ -43,7 +43,7 @@
                 <td>{{$search->año_edicion}}</td>
                 <td>{{$search->autor}}</td>
                 <td>{{$search->editorial}}</td>
-                <td><a href=""><button>ALQUILAR</button></a></td>
+                <td><a href="{{route('usuario.lend-books', $search->titulo)}}"><button>ALQUILAR</button></a></td>
             </tr>
             @endforeach
             </tbody>
@@ -71,7 +71,7 @@
                 <td>{{$libro->año_edicion}}</td>
                 <td>{{$libro->autor}}</td>
                 <td>{{$libro->editorial}}</td>
-                <td><a href=""><button>ALQUILAR</button></a></td>
+                <td><a href="{{route('usuario.lend-books', $libro->titulo)}}"><button type="button">ALQUILAR</button></a></td>
             </tr>
             @endforeach
         </tbody>

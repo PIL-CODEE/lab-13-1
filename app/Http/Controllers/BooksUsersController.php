@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Rent;
 
 class BooksUsersController extends Controller
 {
@@ -26,6 +27,16 @@ class BooksUsersController extends Controller
         ];
 
         return view('usuario.index', $data);
+    }
+
+    public function rentbook($libro)
+    {
+        return view('usuario.prestar', ['libro' => $libro]);
+    }
+
+    public function rent()
+    {
+        return redirect()->route('usuario.index');
     }
 
 }
