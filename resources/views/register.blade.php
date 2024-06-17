@@ -19,7 +19,6 @@
         <label for="typeuserInput">Tipo de Usuario: </label>
         <select  id="typeuserInput" name="tipo_usuario">
             <option>Lector</option>
-            <option>Admintrador</option>
         </select>
         <button type="submit"><b>Registrarse</b></button>
     </form>

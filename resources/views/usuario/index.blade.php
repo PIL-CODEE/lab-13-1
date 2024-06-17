@@ -3,26 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{asset('css/index-usuario.css')}}">
 </head>
 <body>
     <header>
-        <a href="">Pagina Privada @auth de {{Auth::user()->name}} @endauth</a>
-        <a href="{{route('usuario.lend-books')}}">Alquilar libro</a>
-        <a href="{{route('administrador.index')}}">Añadir/Modificar/Eliminar/Libros</a>
-        <a href="{{route('logout')}}"><button type="button">Salir</button></a>
+        <a href="{{route('usuario.lend-books')}}"><b>Alquilar libro</b></a>
+        <a href=""><b>Cuenta @auth de {{Auth::user()->name}} @endauth</b></a>
+        <a href="{{route('logout')}}"><button type="button"><b>Salir</b></button></a>
     </header>
-    <h5>Buscar libro</h5>
+    <h1><b>Leyendo Horizontes</b></h1>
     <form action="{{route('usuario.index')}}" method="GET">
-        <input type="text" name="busqueda" placeholder="Buscar por título" autocomplete="off">
+        <input type="text" name="busqueda" placeholder="Buscar libro por título" autocomplete="off">
         <input type="submit" value="Buscar">
     </form>
     @if (request()->has('busqueda') && trim(request()->input('busqueda')) !== '')
@@ -61,7 +53,7 @@
         @endif
     @endif
 
-    <h2>LIBROS</h2>
+    <h1>LIBROS</h1>
     <table>
         <thead>
             <tr>
