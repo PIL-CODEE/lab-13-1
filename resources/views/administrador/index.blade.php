@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/index-administrador.css')}}">
 </head>
 <body>
-    <h2>LIBROS</h2>
     <header>
-        <a href="{{route('usuario.index')}}">Inicio</a>
+        <a href="{{route('administrador.register-books')}}"><b>Registrar nuevo libro</b></a>
+        <a href="{{route('usuario.index')}}"><b>Inicio</b></a>
     </header>
-    <a href="{{route('administrador.register-books')}}"><button type="button">Registrar nuevo libro</button></a>
+    <h2>LIBROS</h2>
     <table>
         <thead>
             <tr>
@@ -47,17 +48,9 @@
         <label for="año_edicion">Año de creación: </label>
         <input type="number" id="año_edicion" name="año_edicion" required autocomplete="off">
         <label for="autor">Autor: </label>
-        <select  id="autor" name="autor">
-            @foreach ($libros as $libro)
-            <option>{{$libro->autor}}</option>
-            @endforeach
-        </select>
+        <input type="text" id="autor" name="autor" required autocomplete="off">
         <label for="editorial">Editorial: </label>
-        <select  id="editorial" name="editorial">
-            @foreach ($libros as $libro)
-            <option>{{$libro->editorial}}</option>
-            @endforeach
-        </select>
+        <input type="text" id="editorial" name="editorial" required autocomplete="off">
         <button type="submit"><b>EDITAR</b></button>
     </form>
 </body>
