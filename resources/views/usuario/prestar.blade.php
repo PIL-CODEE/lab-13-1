@@ -10,7 +10,11 @@
         <h2>ALQUILAR LIBRO</h2>
         @csrf
         <label for="titulo">Libro: </label>
-        <input type="text" id="titulo" name="titulo" value="{{$libro}}" readonly>
+        <select name="id_libro" id="id_libro">
+        @foreach ($books as $book)
+            <option value="{{ $book->id }}">{{ $book->titulo }}</option>
+        @endforeach
+        </select>
         <label for="fecha_inicio">Fecha de alquiler: </label>
         <input type="date" id="fecha_inicio" name="fecha_inicio" readonly value="{{ date('Y-m-d') }}">
         <label for="fecha_devolucion">Fecha de devolución: </label>

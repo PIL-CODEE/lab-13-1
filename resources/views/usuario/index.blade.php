@@ -16,12 +16,13 @@
 <body>
     <header>
         <a href="">Pagina Privada @auth de {{Auth::user()->name}} @endauth</a>
+        <a href="{{route('usuario.lend-books')}}">Alquilar libro</a>
         <a href="{{route('administrador.index')}}">Añadir/Modificar/Eliminar/Libros</a>
         <a href="{{route('logout')}}"><button type="button">Salir</button></a>
     </header>
     <h5>Buscar libro</h5>
     <form action="{{route('usuario.index')}}" method="GET">
-        <input type="text" name="busqueda" placeholder="Buscar por título">
+        <input type="text" name="busqueda" placeholder="Buscar por título" autocomplete="off">
         <input type="submit" value="Buscar">
     </form>
     @if (request()->has('busqueda') && trim(request()->input('busqueda')) !== '')
@@ -33,7 +34,7 @@
                 <th>AÑO DE CREACIÓN</th>
                 <th>AUTOR</th>
                 <th>EDITORIAL</th>
-                <th></th>
+                <th>ESTADO</th>
             </tr>   
             </thead>
             <tbody>
@@ -43,9 +44,16 @@
                 <td>{{$search->año_edicion}}</td>
                 <td>{{$search->autor}}</td>
                 <td>{{$search->editorial}}</td>
-                <td><a href="{{route('usuario.lend-books', $search->titulo)}}"><button>ALQUILAR</button></a></td>
-            </tr>
             @endforeach
+                <td>
+                    @if ($books->contains('id', $search->id))
+                        {{ $books->firstWhere('id', $search->id)->estado ?? 'Disponible' }}
+                    @else
+                        Disponible
+                    @endif
+                </td>
+            </tr>
+            
             </tbody>
         </table>
         @else
@@ -61,17 +69,17 @@
                 <th>AÑO DE CREACIÓN</th>
                 <th>AUTOR</th>
                 <th>EDITORIAL</th>
-                <th></th>
+                <th>ESTADO</th>
             </tr>   
         </thead>
         <tbody>
-            @foreach ($libros as $libro)
+            @foreach ($books as $book)
             <tr>
-                <td>{{$libro->titulo}}</td>
-                <td>{{$libro->año_edicion}}</td>
-                <td>{{$libro->autor}}</td>
-                <td>{{$libro->editorial}}</td>
-                <td><a href="{{route('usuario.lend-books', $libro->titulo)}}"><button type="button">ALQUILAR</button></a></td>
+                <td>{{$book->titulo}}</td>
+                <td>{{$book->año_edicion}}</td>
+                <td>{{$book->autor}}</td>
+                <td>{{$book->editorial}}</td>
+                <td>{{$book->estado ? $book->estado : 'Disponible'}}</td>
             </tr>
             @endforeach
         </tbody>

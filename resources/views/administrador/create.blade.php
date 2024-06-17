@@ -12,11 +12,11 @@
         <label for="titulo">Titulo: </label>
         <input type="text" id="titulo" name="titulo" required autocomplete="off">
         <label for="año_edicion">Año de creación: </label>
-        <input type="number" id="año_edicion" name="año_edicion" required autocomplete="disable">
+        <input type="number" id="año_edicion" name="año_edicion" required autocomplete="off">
         <label for="autor">Autor: </label>
-        <input type="text" id="autor" name="autor" required autocomplete="disable">
+        <input type="text" id="autor" name="autor" required autocomplete="off">
         <label for="editorial">Editorial: </label>
-        <input type="text" id="editorial" name="editorial" required autocomplete="disable">
+        <input type="text" id="editorial" name="editorial" required autocomplete="off">
         <button type="submit"><b>AGREGAR</b></button>
     </form>
 </body>
