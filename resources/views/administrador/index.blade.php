@@ -53,5 +53,28 @@
         <input type="text" id="editorial" name="editorial" required autocomplete="off">
         <button type="submit"><b>EDITAR</b></button>
     </form>
+    <h2>ALQUILERES</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID_RESERVA</th>
+                <th>ID_USUARIO</th>
+                <th>ID_LIBRO</th>
+                <th>FECHA DE ALQUILER</th>
+                <th>FECHA DE DEVOLUCIÓN</th>
+            </tr>   
+        </thead>
+        <tbody>
+            @foreach ($alquileres as $alquiler)
+            <tr>
+                <td>{{$alquiler->id}}</td>
+                <td>{{$alquiler->id_usuario}}</td>
+                <td>{{$alquiler->id_libro}}</td>
+                <td>{{$alquiler->fecha_inicio}}</td>
+                <td>{{$alquiler->fecha_devolucion}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

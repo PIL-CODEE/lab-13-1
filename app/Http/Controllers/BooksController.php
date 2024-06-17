@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Rent;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -11,7 +12,14 @@ class BooksController extends Controller
     public function index()
     {
         $libros = Book::all();
-        return view('administrador.index', ['libros' => $libros]);
+        $alquileres = Rent::all();
+
+        $data = [
+            'libros' => $libros,
+            'alquileres' => $alquileres
+        ];
+
+        return view('administrador.index', $data);
     }
 
     // Agregar libro
